@@ -4,72 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Media Feed</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --dark: #0f0f0f;
-            --darker: #0b0b0b;
-            --light: #f1f5f9;
-            --gray: #94a3b8;
-            --card-bg: rgba(15, 15, 15, 0.7);
-            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--darker), #1a1a1a);
-            color: var(--light);
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 60px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Section Header */
-        .section-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        .section-header p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 20px auto 0;
-            font-size: 1.1rem;
-        }
-
         /* Social Feed Section */
         .social-feed {
             padding: 100px 0;
@@ -332,6 +269,18 @@
             opacity: 0.5;
         }
 
+        .ret-btn {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: var(--fast-transition);
+        }
+        .ret-btn:hover {
+            color: var(--text-main);
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .section-header h2 {
@@ -378,7 +327,8 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <a href="index.html" class="ret-btn"><i class="fas fa-arrow-left"></i></a>
+    <div class="container section">
         <!-- Section Header -->
         <div class="section-header">
             <h2>Latest Updates</h2>

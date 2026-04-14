@@ -4,90 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testimonials Section</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <style>
-        :root {
-            --primary: #6366f1;
-            --secondary: #8b5cf6;
-            --dark: #0f0f0f;
-            --darker: #0b0b0b;
-            --light: #f1f5f9;
-            --gray: #94a3b8;
-            --card-bg: rgba(15, 15, 15, 0.7);
-            --transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Montserrat', sans-serif;
-            background: linear-gradient(135deg, var(--darker), #1a1a1a);
-            color: var(--light);
-            line-height: 1.6;
-            min-height: 100vh;
-            padding: 60px 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Section Header */
-        .section-header {
-            text-align: center;
-            margin-bottom: 70px;
-        }
-
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-            position: relative;
-            display: inline-block;
-        }
-
-        .section-header h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 2px;
-        }
-
-        .section-header p {
-            color: var(--gray);
-            max-width: 600px;
-            margin: 20px auto 0;
-            font-size: 1.1rem;
-        }
-
-        /* Testimonials Section */
+        /* Testimonials Section Specifics */
         .testimonials {
             padding: 100px 0;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        /* Carousel Container */
         .testimonials-carousel {
             position: relative;
+            width: 100%;
             max-width: 900px;
             margin: 0 auto;
         }
 
         .testimonial-card {
-            background: var(--card-bg);
-            border-radius: 15px;
+            background: var(--surface);
+            border-radius: var(--radius);
             padding: 40px;
-            border: 1px solid rgba(148, 163, 184, 0.1);
-            backdrop-filter: blur(10px);
+            border: 1px solid var(--border);
             text-align: center;
             opacity: 0;
             transform: translateX(100px);
@@ -111,7 +51,6 @@
             transform: translateX(-100px);
         }
 
-        /* Star Rating */
         .stars {
             margin-bottom: 25px;
             font-size: 1.3rem;
@@ -122,16 +61,14 @@
             color: #fbbf24;
         }
 
-        /* Testimonial Text */
         .testimonial-text {
             font-size: 1.1rem;
-            color: var(--light);
+            color: var(--text-main);
             margin-bottom: 30px;
             line-height: 1.8;
             font-style: italic;
         }
 
-        /* Client Info */
         .client-info {
             display: flex;
             align-items: center;
@@ -143,13 +80,14 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: var(--surface-elevated);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
-            color: white;
+            color: var(--text-main);
             font-weight: 700;
+            border: 1px solid var(--border);
         }
 
         .client-details h4 {
@@ -159,40 +97,10 @@
         }
 
         .client-title {
-            color: var(--gray);
+            color: var(--text-muted);
             font-size: 0.95rem;
         }
 
-        /* Navigation Controls */
-        .carousel-controls {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 50px;
-        }
-
-        .nav-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(99, 102, 241, 0.1);
-            border: 1px solid rgba(99, 102, 241, 0.3);
-            color: var(--primary);
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .nav-btn:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-5px);
-        }
-
-        /* Dots Indicator */
         .carousel-dots {
             display: flex;
             justify-content: center;
@@ -204,71 +112,32 @@
             width: 12px;
             height: 12px;
             border-radius: 50%;
-            background: rgba(99, 102, 241, 0.2);
+            background: var(--border);
             cursor: pointer;
             transition: var(--transition);
         }
 
         .dot.active {
-            background: var(--primary);
+            background: var(--text-main);
             transform: scale(1.3);
         }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .section-header h2 {
-                font-size: 2rem;
-            }
-
-            .testimonial-card {
-                padding: 30px;
-                min-height: 400px;
-            }
-
-            .testimonial-text {
-                font-size: 1rem;
-            }
-
-            .client-avatar {
-                width: 70px;
-                height: 70px;
-                font-size: 1.5rem;
-            }
-
-            .client-info {
-                flex-direction: column;
-            }
+        
+        .ret-btn {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            transition: var(--fast-transition);
         }
-
-        @media (max-width: 576px) {
-            .section-header h2 {
-                font-size: 1.8rem;
-            }
-
-            .testimonial-card {
-                padding: 20px;
-                min-height: 380px;
-            }
-
-            .testimonial-text {
-                font-size: 0.95rem;
-                margin-bottom: 20px;
-            }
-
-            .nav-btn {
-                width: 45px;
-                height: 45px;
-                font-size: 1rem;
-            }
-
-            .carousel-controls {
-                gap: 15px;
-            }
+        .ret-btn:hover {
+            color: var(--text-main);
         }
     </style>
 </head>
 <body>
-    <div class="container">
+    <a href="index.html" class="ret-btn"><i class="fas fa-arrow-left"></i></a>
+    <div class="container section">
         <!-- Section Header -->
         <div class="section-header">
             <h2>Client Testimonials</h2>
